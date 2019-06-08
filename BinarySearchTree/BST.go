@@ -58,11 +58,7 @@ func main() {
 	for i := 1; i <= 5; i++ {
 		fmt.Println("\nEnter element:")
 		fmt.Scanf("%d", &inp)
-		if i == 1 {
-			root = insertToNode(root, inp)
-		} else {
-			root = insertToNode(root, inp)
-		}
+		root = insertToNode(root, inp)
 	}
 
 	printTreeInorder(root)
