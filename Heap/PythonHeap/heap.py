@@ -13,10 +13,6 @@ class MinHeap():
             return None
         return (idx*2) + 1
 
-    @classmethod
-    def parent(cls, idx: int) -> int:
-        return idx//2
-
     def get_push_parent(self, idx) -> int:
         return idx//2
 
