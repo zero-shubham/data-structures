@@ -39,8 +39,31 @@ func insertToNode(root *node, d int) *node {
 		}
 	}
 
-	fmt.Println(tmp, root)
+	// fmt.Println(tmp, root)
 	return root
+}
+
+func bfs(root *node) {
+	q := make([]*node, 0, 10)
+
+	q = append(q, root)
+
+	for len(q) > 0 {
+		for _ = range len(q) {
+
+			curr := q[0]
+			q = q[1:]
+
+			fmt.Println(curr.data)
+			if curr.left != nil {
+				q = append(q, curr.left)
+			}
+			if curr.right != nil {
+				q = append(q, curr.right)
+			}
+		}
+
+	}
 }
 
 func printTreeInorder(ptr *node) {
@@ -62,4 +85,5 @@ func main() {
 	}
 
 	printTreeInorder(root)
+	bfs(root)
 }
