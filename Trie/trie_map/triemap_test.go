@@ -69,8 +69,8 @@ func BenchmarkTrieReuseOverload(b *testing.B) {
 	}
 
 	b.Run("benchmark search triemap", func(b *testing.B) {
-		for i := 0; i < len(randStrsTrie); i++ {
-			ok := tm.Search(randStrsTrie[i])
+		for i := range b.N {
+			ok := tm.Search(randStrsTrie[i%len(randStrsTrie)])
 			if !ok {
 				b.Log("failed seach for: ", randStrsTrie[i])
 			}
@@ -108,8 +108,8 @@ func BenchmarkTrieOptimized(b *testing.B) {
 	}
 
 	b.Run("benchmark search triemap", func(b *testing.B) {
-		for i := 0; i < len(randStrsTrie); i++ {
-			ok := tm.Search(randStrsTrie[i])
+		for i := range b.N {
+			ok := tm.Search(randStrsTrie[i%len(randStrsTrie)])
 			if !ok {
 				b.Log("failed seach for: ", randStrsTrie[i])
 			}
